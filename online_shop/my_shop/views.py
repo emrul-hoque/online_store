@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Product
 from django.http import HttpResponse
 
+
 def product_list(request):
     products = Product.objects.all()
     #return render(request, 'store/product_list.html', {'products': products})
@@ -9,4 +10,6 @@ def product_list(request):
 
 
 def index(request):
-    return HttpResponse("Hello, World!")
+    store_name = "Welome to Kachchi Bhai! Your favourite biriyani place"  # Set your store name here
+    return render(request, 'index.html', {'store_name': store_name})
+
