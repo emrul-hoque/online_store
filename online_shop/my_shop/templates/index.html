@@ -1,4 +1,6 @@
+{% load thumbnail %}
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +11,12 @@
 <body>
     <header>
         <!-- Display your logo -->
-        <img src="{% static 'image.jpeg' %}" alt="Store Logo">
-        <h1>Welcome to {{ store_name }}</h1>
+        {% thumbnail 'image.jpeg' '300x200' crop as my_thumbnail %}
+        <img src="{{ my_thumbnail.url }}" alt="My Image">
+        
+        <!--h1>{{ store_name }}</h1>
+        <img src="{% static 'image.jpeg' %}" alt="My Image"-->
+
     </header>
     
     <main>
